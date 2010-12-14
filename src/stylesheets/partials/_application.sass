@@ -1,0 +1,225 @@
+body
+  background: $background_color url(/images/bg.jpg) repeat-x
+
+html, * html, *:first-child+html 
+  a.logo
+    text-indent: 0
+    overflow: hidden
+    font-size: 0px
+    line-height: 0px
+
+a:active, a:focus, input[type=image]
+  outline-style: none
+
+.highlight
+  color: $red
+  font-weight: bold
+
+#thanks
+  position: relative
+  font-size: 24px
+  z-index: 10
+  h2
+    text-align: left
+    text-transform: none
+    font-size: 42px
+    padding: 58px 0 0 129px
+    margin-bottom: 14px
+  p
+    text-align: center
+    line-height: 28px
+    padding: 0 80px 0 50px
+    margin-bottom: 1em
+  .inner
+    position: absolute
+    left: -22px
+    top: -20px
+    background: transparent url(/images/box_alert_msg.png) no-repeat
+    height: 482px
+    width: 489px
+    a
+      margin: 0 auto
+      color: $e9_link
+      .icon
+        background: url(/images/icons_close.png) no-repeat
+        display: inline-block
+        width: 25px
+        height: 26px
+        text-indent: -999em
+        top: 5px
+        position: relative
+        margin-right: 5px
+
+    a:hover
+      color: $e9_link_over
+    a .icon
+      background-position: left 0
+    a:hover .icon
+      background-position: left -27px
+
+#errorsContainer
+  position: relative
+  #errors
+    position: absolute
+    left: -22px
+    top: -20px
+    z-index: 10
+    h2
+      color: $red
+      margin-bottom: 4px
+    background: transparent url(/images/box_error_msg.png) no-repeat
+    text-align: center
+    padding: 5px
+    padding-top: 39px
+    color: $red
+    height: 179px - 39px
+    width: 461px
+    line-height: 24px
+
+
+$header_height: 349px
+
+#header
+  +container
+  height: 341px
+  overflow: visible
+
+  #welcome
+    height: 156px
+    img
+      position: relative
+      top: -4px
+  
+  #title
+    +column(14)
+    height: 185px
+    overflow: visible
+    h1
+      z-index: 1
+      position: relative
+      top: -40px
+      left: -3px
+      background: transparent url(/images/logo_ticket.png) no-repeat
+      text-indent: -999em
+      height: 280px
+      width: 438px
+  #intro
+    +column(19, true)
+    text-align: left
+    color: $maroon
+    > div
+      .headline
+        font-weight: bold
+        font-size: 20px
+
+      font-size: 18px
+      line-height: 25px
+      padding: 15px 0 0 15px
+      
+#filofax
+  background: transparent url(/images/filofax.png) no-repeat top center
+  width: 100%
+  height: 786px
+  position: absolute
+  top: 341px
+  z-index: -1
+  margin-left: -11px
+
+#content
+  +container
+  #left
+    +column(11)
+    text-align: center
+    overflow: visible
+    #news
+      margin-top: 40px
+    #twitter
+      width: 300px
+      margin: 10px auto
+    #contact
+      width: 326px
+      position: relative
+      top: -10px
+      padding-top: 26px
+      background: transparent url(/images/box_mail_top.png) top left no-repeat
+      #bottom
+        background: transparent url(/images/box_mail_bottom.png) bottom left no-repeat
+        height: 23px
+      #middle
+        height: 35px
+        background: transparent url(/images/box_mail_slice.png) left repeat-y
+      a
+        color: $red
+        font-weight: bold
+        .icon
+          background: url(/images/icons_mail.png) no-repeat
+          display: inline-block
+          width: 21px
+          height: 15px
+          text-indent: -999em
+          position: relative
+          margin-left: 2px
+          top: 3px
+      a:hover
+        color: $brown
+      a .icon
+        background-position: left -16px
+      a:hover .icon
+        background-position: left 0
+  #main
+    +column(14)
+    h2
+      color: $maroon
+      margin-bottom: 10px
+    position: relative
+    //background-color: $offwhite
+    .box-text
+      +arrowbox
+
+  #right
+    +column(8)
+    h2
+      color: $maroon
+    text-align: center
+    #social
+      margin-top: 40px
+      > *
+        margin: 0 auto
+        padding-bottom: 30px
+      > h2
+        width: 135px
+      > div
+        width: 131px
+      a
+        text-indent: -999em
+        display: inline-block
+        vertical-align: baseline
+        width: 131px
+        height: 131px
+        &.facebook
+          background: transparent url(/images/btns_fb.png) no-repeat left -132px
+        &.twitter
+          background: transparent url(/images/btns_twitter.png) no-repeat left -132px
+      a:hover
+        background-position: left 0
+    #e9
+      padding-top: 23px
+      +small-font
+      .logo
+        background: url(/images/icons_e9.png) no-repeat
+        display: inline-block
+        width: 33px
+        height: 21px
+        text-indent: -999em
+        vertical-align: middle
+        position: relative
+        margin-left: 2px
+        top: 3px
+      a
+        color: $e9_link_over
+      a .logo
+        background-position: left -22px
+      a:hover
+        color: $e9_link
+      a:hover .logo
+        background-position: left 0

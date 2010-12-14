@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; CHARSET=utf-8" http-equiv="Content-Type" />
+    <meta content="S9uSQacmhIf139euQs-jmvyY-0_w_I9h6PVjaTNKhzQ" name="google-site-verification" />
+    <title>Welcome! | FreeSocialEvents.com</title>
+    <meta content="Everyone loves FREE, Everyone loves great EVENTS! Your exclusive source for FREE shows, sporting events, parties, indoor/outdoor adventures, expos, festivals, volunteer opportunities, children's events, and SO MUCH MORE!" name="description" />
+    <meta content="events, shows, sporting events, parties, indoor/outdoor adventures, expos, festivals, volunteer opportunities, children's events" name="keywords" />
+    <link href="//fonts.googleapis.com/css?family=Droid+Sans:regular,bold&amp;subset=latin" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css"/>
+    <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 8]>
+      <link href="stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <script language="javascript" src="javascripts/jquery-1.4.2.min.js" type="text/javascript"></script><script language="javascript" src="javascripts/jquery.validate.min.js" type="text/javascript"></script><script language="javascript" src="javascripts/application.js" type="text/javascript"></script>
+  </head>
+  <body class="home">
+    <div id="header">
+      <div id="welcome">
+        <img src="/images/welcome.png" />
+      </div>
+      <div id="title">
+        <h1>FreeSocialEvents.com</h1>
+      </div>
+      <div id="intro">
+        <div>
+          <span class='headline'>Everyone loves FREE, Everyone loves EVENTS!</span> <br/>
+          Coming soon, your exclusive source for FREE shows, sporting events, parties, indoor/outdoor adventures,
+          expos, festivals, volunteer opportunities, children's events, and SO MUCH MORE!
+          Please join our mailing list below and never say this phrase again... "What are we
+          doing tonight?"
+        </div>
+      </div>
+    </div>
+    <div id="content">
+      <div id="left">
+        <div id="news">
+          <h2>Latest News</h2>
+          <div id="twitter"></div>
+        </div>
+        <div id="contact">
+          <a class="contact-us" href="mailto: contact at freesocialevents dot com" rel="email" title="Contact Us">
+            Click here to contact us!
+          </a>
+        </div>
+      </div>
+      <div id="main">
+        <form action="/cgi-bin/post.cgi" id="user_input_form" method="POST">
+          <div class="box-text">
+            <h2>Register for Updates</h2>
+            Would you like to know when
+            <span class="highlight">FreeSocialEvents.com</span>
+            launches in your area?  Register for updates and get a
+            <strong>FREE</strong> Premium Membership for 30 Days.
+          </div>
+          <div class="field">
+            <label class="req" for="user_email">Email</label>
+            <input class="required email" id="user_email" name="user_email" type="text" />
+          </div>
+          <div class="field">
+            <label class="req" for="user_zipcode">Zip Code</label>
+            <input class="required zipcode" id="user_zipcode" name="user_zipcode" type="text" />
+          </div>
+          <div class="box-text">
+            If you follow us on Twitter and become a fan of ours on
+            Facebook, you'll get a <strong>FREE</strong> Premium Membership
+            for 60 Days.
+          </div>
+          <div class="field">
+            <label for="user_twitter">Twitter Name</label>
+            <input id="user_twitter" name="user_twitter" type="text" />
+          </div>
+          <div class="field">
+            <label for="user_facebook">Full Name on Facebook</label>
+            <input id="user_facebook" name="user_facebook" type="text" />
+          </div>
+          <div class="actions">
+            <input src="/images/btns_submit.png" type="image" />
+          </div>
+        </form>
+      </div>
+      <div id="right">
+        <div id="social">
+          <h2>Follow us on Facebook and Twitter</h2>
+          <div id="facebook">
+            <a class="facebook" href="http://www.facebook.com/pages/Free-Social-Events-New-York-City-area-/163572896997199" rel="external" title="Visit us on Facebook">Visit us on Facebook</a>
+          </div>
+          <div id="twitter">
+            <a class="twitter" href="http://twitter.com/#!/freesocialevent" rel="external" title="Follow us on Twitter">Follow us on Twitter</a>
+          </div>
+        </div>
+        <div id="e9">
+          <a href="http://www.e9digital.com" rel="external" title="Web Design by e9digital">
+            Web Design by e9digital
+          </a>
+        </div>
+      </div>
+    </div>
+    <div id="scripts">
+      <script language="javascript" src="http://widgets.twimg.com/j/2/widget.js" type="text/javascript"></script>
+      <script type="text/javascript">
+        //<![CDATA[
+          new TWTR.Widget({
+            id: 'twitter',
+            version: 2,
+            type: 'profile',
+            rpp: 3,
+            interval: 2000,
+            width: 300,
+            height: 250,
+            theme: { shell: { background: '#feffe1', color: '#aa0000' }, tweets: { background: '#ffffff', color: '#000000', links: '#aa0000' } },
+            features: { scrollbar: false, loop: false, live: true, hashtags: true, timestamp: true, avatars: true, behavior: 'default' }
+          }).render().setUser('freesocialevent').start();
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-19530301-1']);
+          _gaq.push(['_trackPageview']);
+          
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        //]]>
+      </script>
+    </div>
+  </body>
+</html>

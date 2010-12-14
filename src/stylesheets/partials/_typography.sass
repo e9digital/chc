@@ -1,0 +1,34 @@
+// must load google fonts first
+$impact: 'Impact', serif
+$droid: 'Droid Sans', serif
+
+=main-font
+  font-family: $droid
+  font-size: 15px
+  font-style: normal
+  font-weight: 400
+  text-shadow: none
+  text-decoration: none
+  text-transform: none
+  letter-spacing: 0em
+  word-spacing: 0em
+  line-height: 1em
+
+=small-font
+  +main-font
+  font-size: 12px
+
+body
+  +main-font
+
+h2
+  font-family: $impact
+  font-size: 24px
+  color: $brown
+  line-height: 1em
+  margin: 0 0 10px 0
+  text-transform: uppercase
+  text-align: center
+
+a
+  text-decoration: none

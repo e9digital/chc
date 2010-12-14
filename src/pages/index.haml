@@ -1,0 +1,35 @@
+- @body_class  = "home"
+- @page_title  = "Welcome!"
+- @form_action = "/cgi-bin/post.cgi"
+
+%form{:action => @form_action, :method => 'POST', :id => 'user_input_form'}
+  .box-text
+    %h2 Register for Updates
+    Would you like to know when
+    %span.highlight FreeSocialEvents.com
+    launches in your area?  Register for updates and get a
+    <strong>FREE</strong> Premium Membership for 30 Days.
+
+  .field
+    %label{:for => 'user_email', :class => 'req'} Email
+    %input{:type => 'text', :id => 'user_email', :name => 'user_email', :class => 'required email'}
+
+  .field
+    %label{:for => 'user_zipcode', :class => 'req'} Zip Code
+    %input{:type => 'text', :id => 'user_zipcode', :name => 'user_zipcode', :class => 'required zipcode'}
+
+  .box-text
+    If you follow us on Twitter and become a fan of ours on
+    Facebook, you'll get a <strong>FREE</strong> Premium Membership
+    for 60 Days.
+
+  .field
+    %label{:for => 'user_twitter'} Twitter Name
+    %input{:type => 'text', :id => 'user_twitter', :name => 'user_twitter'}
+
+  .field
+    %label{:for => 'user_facebook'} Full Name on Facebook
+    %input{:type => 'text', :id => 'user_facebook', :name => 'user_facebook'}
+
+  .actions
+    %input{:type => 'image', :src => "/images/btns_submit.png"}

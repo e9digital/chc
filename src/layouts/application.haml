@@ -1,0 +1,75 @@
+- @site_name                     = "Creative Human Capital"
+- @title_delimiter               = " | "
+- @page_description              = @site_name
+- @page_h1                       = "Welcome to #{@site_name}!"
+- @meta_description              = "meta description"
+- @meta_keywords                 = "meta keywords"
+- @google_site_verification_code = nil
+- @twitter_url                   = "http://twitter.com/"
+- @facebook_url                  = "http://www.facebook.com/"
+- @email_recipient               = 'contact'
+- @email_domain                  = 'creativehumancapital'
+- @mailto_url                    = "mailto: #{@email_recipient} at #{@email_domain} dot com"
+
+!!!
+%html
+  %head
+    %meta{:"http-equiv" => "Content-Type", :content => "text/html; CHARSET=utf-8"}/
+    - unless @google_site_verification_code.nil?
+      %meta{:name => "google-site-verification", :content => @google_site_verification_code }/
+    %title= full_page_title
+    %meta{:name => "description", :content => @meta_description}
+    %meta{:name => "keywords", :content => @meta_keywords}
+
+    %link{:href => "//fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin", :rel => "stylesheet", :type => "text/css"}/
+    = stylesheets :screen, :media => 'screen, projection'
+    = stylesheets :print, :media => 'print'
+    /[if lt IE 8]
+      = stylesheets :ie, :media => 'screen, projection'
+
+    = javascripts 'jquery-1.4.2.min', 'jquery.validate.min', 'application'
+
+  %body{:id => @body_id, :class => @body_class}
+    #header
+      #welcome
+        %img{:src => '/images/welcome.png'}
+      #title
+        %h1= @site_name
+
+      #intro
+        %div asdf
+
+    #content
+      #left
+        #news
+          %h2 Latest News
+          #twitter
+        #contact
+          %a{:href => @mailto_url, :rel => 'email', :title => 'Contact Us', :class => 'contact-us'} 
+            Click here to contact us!
+
+      #main
+        = yield
+
+      #right
+        #social
+          %h2 Follow us on Facebook and Twitter
+          #facebook
+            %a{:href => @facebook_url, :rel => 'external', :title => 'Visit us on Facebook', :class => 'facebook'} Visit us on Facebook
+          #twitter
+            %a{:href => @twitter_url, :rel => 'external', :title => 'Follow us on Twitter', :class => 'twitter'} Follow us on Twitter
+        #e9
+          %a{:href => "http://www.e9digital.com", :rel => 'external', :title => 'Web Design by e9digital'} 
+            Web Design by e9digital
+
+    #scripts
+      :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-19530301-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
