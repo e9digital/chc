@@ -1,13 +1,42 @@
-$red: #aa0000
-$maroon: #772411
-$brown: #633a0d
-$e9_link: $brown
-$e9_link_over: #aa5652
-$text_field_border: #f7e9b0
-$offwhite: #fdffe0
+$dark_blue: #627e9f
+$blue: #a4bedd
+$light_blue: #ced7e4
+$green: #93e2a6
+$light_green: #c1eacc
+$gray: #ccc
+$orange: #ed670e
 
-$arrowbox_border: #ffe080
-$arrowbox_fill: #fff7c2
+$pipe_right_color: #f1f8f2
+$pipe_left_color: #d1e3d5
 
-$background_color: $offwhite
-$font_color: black
+$e9_link: $light_blue
+$e9_link_over: $blue
+
+$background_color: white
+$font_color: $dark_blue
+$body_color: $dark_blue
+$footer_color: $light_blue
+
+@mixin link_colors($color, $hover, $self: false)
+  @if $self
+    &, &:link, &:visited
+      color: $color
+    &:hover
+      color: $hover
+  @else
+    a, a:link, a:visited
+      color: $color
+    a:hover
+      color: $hover
+
+@mixin body_colors
+  color: $dark_blue
+  @include link_colors($dark_blue, $dark_blue - #333)
+
+@mixin footer_colors
+  color: $light_blue
+  @include link_colors($light_blue, $blue)
+
+@mixin read_more_colors
+  color: $green
+  @include link_colors($green, $blue, true)

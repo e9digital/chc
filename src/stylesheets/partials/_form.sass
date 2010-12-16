@@ -1,45 +1,36 @@
-$form_input_padding: 5px
-$form_input_border_width: 1px
-$form_element_width: 360px
-$form_element_border_radius: 4px
-
 form
-  +blueprint-form
+  .field
+    @include clearfix
+    margin-bottom: 1em
+    label
+      padding: 0
+      font-weight: normal
+    label, input[type=text], textarea
+      display: block
+      float: left
+    input, textarea, input:focus, textarea:focus
+      @extend .cantarell
+      font-size: 16px
+      color: $dark_blue
+      margin-top: 2px
+      width: 520px
+      border: 0
+      border-left: 4px solid $green
+      &.error
+        border-color: $orange
+      background: white url(/images/shadow_form_field.png) left top repeat-x
 
   label
-    display: block
-    width: $form_element_width
-    border-bottom: 1px solid $text_field_border
     padding: 0 0 5px 5px
-    .star
-      display: inline-block
-      background: url(/images/star.gif) center center no-repeat
-      width: 15px
-      height: 9px
 
-  input[type=image]
-    display: block
-    margin: 0 auto
-    padding: 10px
+  textarea
+    padding: 5px 3px 5px 3px
+    height: 140px - 10px - 2px
+    overflow-y: auto
 
   input[type=text]
-    z-index: 2
-    padding: $form_input_padding
-    width: $form_element_width - 2 * $form_input_padding - 2 * $form_input_border_width
-    margin-top: 0
-    border-width: $form_input_border_width
-    border-color: $text_field_border
-    border-top-color: #d7dcd5
-    &:focus
-      border-color: $offwhite - #333
-    &.error
-      border-color: $red
+    padding: 3px
+    height: 40px - 6px - 2px
 
-    border-radius: $form_element_border_radius
-    -moz-border-radius: $form_element_border_radius
-    -webkit-border-radius: $form_element_border_radius
-
-  .field
-    width: $form_element_width
-    margin: 5px auto
-
+  .actions
+    text-align: left

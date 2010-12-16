@@ -21,7 +21,9 @@
     %meta{:name => "description", :content => @meta_description}
     %meta{:name => "keywords", :content => @meta_keywords}
 
-    %link{:href => "//fonts.googleapis.com/css?family=Droid+Sans:regular,bold&subset=latin", :rel => "stylesheet", :type => "text/css"}/
+    <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC' rel='stylesheet' type='text/css'>
+
     = stylesheets :screen, :media => 'screen, projection'
     = stylesheets :print, :media => 'print'
     /[if lt IE 8]
@@ -31,36 +33,48 @@
 
   %body{:id => @body_id, :class => @body_class}
     #header
-      #welcome
-        %img{:src => '/images/welcome.png'}
-      #title
-        %h1= @site_name
+      .inner
+        #title
+          - if current_page == '/index.html'
+            %h1= @site_name
+          - else
+            %h1= full_page_title
+        #nav
+          %ul
+            - title, href, css = 'Who We Are', '/'
+            - css = current_page == '/index.html' ? 'current' : nil
+            %li{:class => css}= link title, href
 
-      #intro
-        %div asdf
+            - title, href, css = 'What We Do', '/what-we-do.html'
+            - css = current_page == href ? 'current' : nil
+            %li{:class => css}= link title, href
+
+            - title, href = 'Enterprise', '/enterprise.html'
+            - css = current_page == href ? 'current' : nil
+            %li{:class => css}= link title, href
+
+            - title, href = 'Individuals', '/individuals.html'
+            - css = current_page == href ? 'current' : nil
+            %li{:class => css}= link title, href
+
+            - title, href = 'Services', '/services.html'
+            - css = current_page == href ? 'current' : nil
+            %li{:class => css}= link title, href
+
+            - title, href = 'Our Human Capital', '/our-human-capital.html'
+            - css = current_page == href ? 'current' : nil
+            %li{:class => css}= link title, href
+
 
     #content
-      #left
-        #news
-          %h2 Latest News
-          #twitter
-        #contact
-          %a{:href => @mailto_url, :rel => 'email', :title => 'Contact Us', :class => 'contact-us'} 
-            Click here to contact us!
-
-      #main
-        = yield
-
-      #right
-        #social
-          %h2 Follow us on Facebook and Twitter
-          #facebook
-            %a{:href => @facebook_url, :rel => 'external', :title => 'Visit us on Facebook', :class => 'facebook'} Visit us on Facebook
-          #twitter
-            %a{:href => @twitter_url, :rel => 'external', :title => 'Follow us on Twitter', :class => 'twitter'} Follow us on Twitter
-        #e9
-          %a{:href => "http://www.e9digital.com", :rel => 'external', :title => 'Web Design by e9digital'} 
-            Web Design by e9digital
+      .inner
+        #main
+          = yield
+        #sidebar
+          = partial 'sidebar'
+    
+    #footer
+      = partial 'footer'
 
     #scripts
       :javascript

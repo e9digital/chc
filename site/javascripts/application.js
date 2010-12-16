@@ -19,16 +19,21 @@ $(document).ready(function() {
     return false;
   });
 
-  jQuery.validator.addMethod('zipcode', function(val, el) {
-    return /^\d{5}(-\d{4})?\s*$/.test(val);
+  jQuery.validator.addMethod('phone', function(val, el) {
+    return /^((\d-?\s*)?\(?\d{3}\)?-?\s*\d{3}-?\s*\d{4}\s*)?$/.test(val);
   }, 'invalid'); 
+
+  //jQuery.validator.addMethod('zipcode', function(val, el) {
+    //return /^\d{5}$/.test(val);
+  //}, 'invalid'); 
 
   var 
   $form           = $('form#user_input_form'),
   $main           = $('#main'),
-  $errorsc        = $('<div id="errorsContainer"><div id="errors" ><h2>Ooops!</h2><div class="user_email"/><div class="user_zipcode"/></div></div>').hide().prependTo($main),
+  $content        = $('#content'),
+  $errorsc        = $('<div id="errorsContainer"><div id="errors" ><h2>Ooops!</h2><p class="user_name"/><p class="user_email"/><p class="user_phone"/></div></div>').hide().appendTo($content),
   $errors         = $errorsc.find("#errors"),
-  $thanks         = $('<div id="thanks"/>').hide().prependTo($main),
+  $thanks         = $('<div id="thanks"/>').hide().appendTo($content),
   scrollToMain    = function() {
     $('html, body').animate({ scrollTop: $main.offset().top - 100 }, 750);
   },
@@ -39,31 +44,41 @@ $(document).ready(function() {
     errorByName(element.attr('name')).html(error.html());
   },
   hidethanks      = function() {
-    $thanks.fadeOut('fast')
+    $thanks.fadeOut()
     $form.removeAttr('disabled');
     return false;
   },
   completeHandler = function() {
     $thanks
-      .html("<div class=\"inner\"><h2>Thank You!</h2><p>We'll email you when we are ready to launch in your area.</p><p>To get credit for your FREE <br/>60 Day Premium Membership, make sure you go to our Twitter page and follow us, and make sure you go to our Facebook page and &#8220;Like us.&#8221;</p><p><a href=\"javascript;\" title=\"Close\"><span class=\"icon\"/>Close</a></p></div>")
-      .fadeIn('fast')
+      .html("<div><h2>Thank You!</h2><p>Your Question has been sent to Jessica.</p><p>She'll get back to you shortly with your Answer...</p></div>")
+      .fadeIn()
       .find('a').click(hidethanks)
       scrollToMain();
     ;
   }
 
+  $errorsc.click(function() {
+    $(this).fadeOut();
+  });
+
+  $thanks.click(function() {
+    $(this).fadeOut();
+  });
+
   $form.validate({
     groups: { 
-      errors: 'user_zipcode user_email'
+      errors: 'user_name user_email user_phone'
     },
     messages: {
-      user_zipcode: {
-        required: "Zipcode is required.",
-        zipcode: "Zipcode is not valid."
+      user_name: {
+        required: "Name is required."
       },
       user_email: {
         required: "Email is required.",
         email: "Email is not valid."
+      },
+      user_phone: {
+        phone: "Phone number is not valid."
       }
     },
     onclick: false,
@@ -72,17 +87,17 @@ $(document).ready(function() {
     errorPlacement: addError,
     errorClass: 'error',
     invalidHandler: function(f, v) {
-      $errorsc.fadeIn('fast');
+      $errorsc.fadeIn();
       scrollToMain();
       v.settings.onkeyup = function() {
         v.settings.onkeyup = v.settings.onfocusout = function(element) {
           if ( element.name in this.submitted || element == this.lastElement ) {
             if(this.element(element)) {
               if(this.numberOfInvalids()) {
-                errorByName(element.name).slideUp('fast');
+                errorByName(element.name).slideUp();
               } else {
                 v.settings.onkeyup = v.settings.onfocusout = null;
-                $errorsc.fadeOut('fast');
+                $errorsc.fadeOut();
               }
             } else {
               errorByName(element.name).slideDown('fast');
@@ -104,17 +119,20 @@ $(document).ready(function() {
   });
 
   $('form input[type=image]').hover(
-    function() { $(this).attr('src', '/images/btns_submit_over.png'); },
-    function() { $(this).attr('src', '/images/btns_submit.png'); }
+    function() { $(this).attr('src', '/images/submit_over.png'); },
+    function() { $(this).attr('src', '/images/submit.png'); }
   );
 
-  $('div.box-text').after('<div class="arrow"/>');
-  $('label.req').append('<span class="star"/>');
-  $('a.contact-us').prepend('<span class="icon"/>');
-  $('#e9 a').append('<span class="logo"/>');
-  $('#contact a').wrap('<div id="middle"/>');
-  $('#contact').append('<div id="bottom"/>');
-  $('body').append('<div id="filofax"/>');
+  $('label.req').append('<span class="star">*</span>');
 
+  $('#footer').append('<div id="bg-gfx"/>');
+
+  $('#e9 a, a.read-more').append('<span class="logo"/>');
+  $("#nav li.current")
+    .wrapInner('<div class="nav-m" />')
+    .prepend('<div class="nav-l" />')
+    .append('<div class="nav-r" />')
+    .next('li').addClass('next')
+  ;
 
 });

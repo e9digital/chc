@@ -1,6 +1,4 @@
-body
-  background: $background_color url(/images/bg.jpg) repeat-x
-
+// hack for something... block display?
 html, * html, *:first-child+html 
   a.logo
     text-indent: 0
@@ -8,218 +6,265 @@ html, * html, *:first-child+html
     font-size: 0px
     line-height: 0px
 
+html
+  height: 101%
+
+// hack to avoid boxes around image links
 a:active, a:focus, input[type=image]
   outline-style: none
 
-.highlight
-  color: $red
-  font-weight: bold
+body
+  background: $background_color url(/images/background.png) repeat
+  @include body_colors
 
-#thanks
-  position: relative
-  font-size: 24px
-  z-index: 10
-  h2
-    text-align: left
-    text-transform: none
-    font-size: 42px
-    padding: 58px 0 0 129px
-    margin-bottom: 14px
-  p
-    text-align: center
-    line-height: 28px
-    padding: 0 80px 0 50px
-    margin-bottom: 1em
-  .inner
-    position: absolute
-    left: -22px
-    top: -20px
-    background: transparent url(/images/box_alert_msg.png) no-repeat
-    height: 482px
-    width: 489px
-    a
-      margin: 0 auto
-      color: $e9_link
-      .icon
-        background: url(/images/icons_close.png) no-repeat
-        display: inline-block
-        width: 25px
-        height: 26px
-        text-indent: -999em
-        top: 5px
-        position: relative
-        margin-right: 5px
-
-    a:hover
-      color: $e9_link_over
-    a .icon
-      background-position: left 0
-    a:hover .icon
-      background-position: left -27px
-
-#errorsContainer
-  position: relative
-  #errors
-    position: absolute
-    left: -22px
-    top: -20px
-    z-index: 10
-    h2
-      color: $red
-      margin-bottom: 4px
-    background: transparent url(/images/box_error_msg.png) no-repeat
-    text-align: center
-    padding: 5px
-    padding-top: 39px
-    color: $red
-    height: 179px - 39px
-    width: 461px
-    line-height: 24px
+$header_height: 180px
 
 
-$header_height: 349px
+.inner
+  @include container
 
 #header
-  +container
-  height: 341px
-  overflow: visible
+  height: $header_height
+  background: url(/images/background_top_nav.png)
 
-  #welcome
-    height: 156px
-    img
-      position: relative
-      top: -4px
-  
   #title
-    +column(14)
-    height: 185px
-    overflow: visible
+    @include column(4)
     h1
       z-index: 1
       position: relative
-      top: -40px
-      left: -3px
-      background: transparent url(/images/logo_ticket.png) no-repeat
+      background: transparent url(/images/logo_chc.png) no-repeat
       text-indent: -999em
-      height: 280px
-      width: 438px
-  #intro
-    +column(19, true)
-    text-align: left
-    color: $maroon
-    > div
-      .headline
-        font-weight: bold
-        font-size: 20px
+      height: 180px
+      width: 134px
+  #nav
+    @include column(29, true)
+    @include top_nav_typography
 
-      font-size: 18px
-      line-height: 25px
-      padding: 15px 0 0 15px
-      
-#filofax
-  background: transparent url(/images/filofax.png) no-repeat top center
-  width: 100%
-  height: 786px
-  position: absolute
-  top: 341px
-  z-index: -1
-  margin-left: -11px
+    padding-top: 60px
+    ul
+      @include clearfix
+      list-style-type: none
+      margin-left: -2px
+      li
+        line-height: 48px
+        float: left
+        a
+          height: 48px
+
+        $padding: 15px
+        $pipe_width: 2px
+        $lw: 20px
+        $rw: 10px
+
+        background: transparent url(/images/pipe.png) ($padding - $pipe_width) 0px no-repeat
+        &:first-child
+          background: none
+
+        padding-left: $padding * 2
+
+        &.current
+          padding-left: $padding * 2 - $lw
+        &.next
+          padding-left: $padding * 2 - $rw
+          background-position: ($padding - $pipe_width - $rw) 0px
+
+        .nav-l, .nav-m, .nav-r
+          height: 48px
+          float: left
+        .nav-l
+          background: url(/images/bubble_left.png) no-repeat
+          width: 20px
+        .nav-m
+          background: url(/images/bubble_middle.png) repeat-x
+        .nav-r
+          background: url(/images/bubble_right.png) no-repeat
+          width: 10px
+
 
 #content
-  +container
-  #left
-    +column(11)
-    text-align: center
-    overflow: visible
-    #news
-      margin-top: 40px
-    #twitter
-      width: 300px
-      margin: 10px auto
-    #contact
-      width: 326px
-      position: relative
-      top: -10px
-      padding-top: 26px
-      background: transparent url(/images/box_mail_top.png) top left no-repeat
-      #bottom
-        background: transparent url(/images/box_mail_bottom.png) bottom left no-repeat
-        height: 23px
-      #middle
-        height: 35px
-        background: transparent url(/images/box_mail_slice.png) left repeat-y
-      a
-        color: $red
-        font-weight: bold
-        .icon
-          background: url(/images/icons_mail.png) no-repeat
-          display: inline-block
-          width: 21px
-          height: 15px
-          text-indent: -999em
-          position: relative
-          margin-left: 2px
-          top: 3px
-      a:hover
-        color: $brown
-      a .icon
-        background-position: left -16px
-      a:hover .icon
-        background-position: left 0
-  #main
-    +column(14)
-    h2
-      color: $maroon
-      margin-bottom: 10px
-    position: relative
-    //background-color: $offwhite
-    .box-text
-      +arrowbox
+  background: url(/images/form_field_shadow.png) left top repeat-x
+  border-top: 1px $blue dashed
+  padding-bottom: 40px
+  position: relative
 
-  #right
-    +column(8)
-    h2
-      color: $maroon
+  #main
+    @include column(18)
+    @include prepend(1)
+    margin-top: 80px
+
+  #sidebar
+    @include column(14, true)
+    @include sidebar_typography
+    margin-top: 47px
+
+    $inner_width: 310px
+    $bg_width: 411px
     text-align: center
-    #social
-      margin-top: 40px
-      > *
-        margin: 0 auto
-        padding-bottom: 30px
-      > h2
-        width: 135px
-      > div
-        width: 131px
-      a
-        text-indent: -999em
-        display: inline-block
-        vertical-align: baseline
-        width: 131px
-        height: 131px
-        &.facebook
-          background: transparent url(/images/btns_fb.png) no-repeat left -132px
-        &.twitter
-          background: transparent url(/images/btns_twitter.png) no-repeat left -132px
-      a:hover
-        background-position: left 0
-    #e9
-      padding-top: 23px
-      +small-font
+
+    .section
+      p, ul
+        text-align: left
+      line-height: 1.2em
+      border-bottom: 1px $blue dashed
+      margin-bottom: 0.85em
+
+    #panel-top, #panel-bottom
+      position: relative
+      padding: 0px (($bg_width - $inner_width) / 2)
+      width: $inner_width
+      float: right
+
+    a.contact-us, a.ask-jessica
+      position: absolute
+      left: 143px
+      background:
+        position: left top
+        repeat: no-repeat
+      height: 62px
+      width: 120px
+      text-indent: -999em
+      &:hover
+        background-position: left bottom
+    
+    a.read-more
+      @include read_more_typography
+      @include read_more_colors
+      line-height: 15px
+      display: block
+      margin: 0.6em 0 0.75em 0
       .logo
-        background: url(/images/icons_e9.png) no-repeat
+        background: url(/images/read_more_hand_30.png) left top no-repeat 
         display: inline-block
-        width: 33px
-        height: 21px
-        text-indent: -999em
-        vertical-align: middle
-        position: relative
-        margin-left: 2px
-        top: 3px
-      a
-        color: $e9_link_over
-      a .logo
-        background-position: left -22px
-      a:hover
-        color: $e9_link
-      a:hover .logo
-        background-position: left 0
+        width: 30px
+        height: 15px
+        line-height: 15px
+        vertical-align: top
+        margin-left: 3px
+      &:hover .logo
+        background-position: left bottom
+
+    #panel-top
+      background: url(/images/right_column_top.png) right top no-repeat
+      height: 449px
+      .section:first-child
+        padding-top: 73px
+      a.contact-us
+        top: 4px
+        background-image: url(/images/contact_us.png)
+
+    #panel-bottom
+      background: url(/images/right_column_bottom.png) right top no-repeat
+      height: 175px
+      .section
+        padding: 0px 20px
+        border-bottom: none
+      .section:first-child
+        padding-top: 26px
+      a.ask-jessica
+        bottom: 4px
+        background-image: url(/images/ask_jessica.png)
+
+#bg-gfx
+  position: absolute
+  bottom: -60px
+  left: 50%
+  margin-left: 990px / 2 * -1
+  background: url(/images/art_globe.png) left bottom no-repeat
+  height: 229px
+  width: 346px
+  z-index: -999
+
+#footer
+  position: relative
+  @include min-width(990px)
+  //@include clearfix
+  border-top: 1px $blue dashed
+  //border-bottom: 1px $blue dashed
+  #copyright
+    float: left
+    text-align: left
+    padding-left: 5px
+    width: 49%
+  #sublogo
+    position: absolute
+    width: 577px
+    margin-left: 577px / 2 * -1
+    height: 60px
+    top: 0
+    left: 50%
+    background: url(/images/tagline_footer_577x59.png) center center no-repeat
+    text-indent: -999em
+    position: absolute
+  #e9
+    float: right
+    text-align: right
+    padding-right: 5px
+    width: 49%
+
+  @include footer_colors
+  @include footer_typography
+  &, a
+    line-height: 60px
+
+#e9
+  @include small_font
+  display: block
+  .logo
+    background: url(/images/e9_20x12.png) no-repeat
+    display: inline-block
+    width: 20px
+    height: 12px
+    text-indent: -999em
+    vertical-align: middle
+    position: relative
+  a
+    text-decoration: none
+  a
+    color: $e9_link
+    .logo
+      background-position: left top
+  a:hover
+    color: $e9_link_over
+    .logo
+      background-position: left bottom
+
+@mixin popup_layer
+  @extend .im-fell
+  cursor: pointer
+  position: absolute
+  top: 0
+  width: 100%
+  @include min-height(100%)
+  //background: transparent url(/images/t.png) repeat
+  text-align: center
+
+@mixin popup_graphics
+  background: transparent url(/images/error_alert_layer_art_600.png) top left no-repeat
+  height: 513px
+  width: 600px
+  margin-left: -300px
+  margin-top: 25px
+  padding-top: 40px
+  position: relative
+  left: 50%
+  h2
+    @extend .h1 
+    margin-bottom: 0.5em
+  p
+    font-size: 22px
+    margin-bottom: 0.25em
+
+#errorsContainer
+  @include popup_layer
+  #errors
+    @include popup_graphics
+    h2
+      color: $orange
+
+#thanks
+  @include popup_layer
+  div
+    @include popup_graphics
+    h2
+      color: $green
+

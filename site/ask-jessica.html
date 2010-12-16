@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta content="text/html; CHARSET=utf-8" http-equiv="Content-Type" />
-    <title>Who We Are | Creative Human Capital</title>
+    <title>Ask Jessica for the Answer | Creative Human Capital</title>
     <meta content="meta description" name="description" />
     <meta content="meta keywords" name="keywords" />
     <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
@@ -14,15 +14,15 @@
     <![endif]-->
     <script language="javascript" src="javascripts/jquery-1.4.2.min.js" type="text/javascript"></script><script language="javascript" src="javascripts/jquery.validate.min.js" type="text/javascript"></script><script language="javascript" src="javascripts/application.js" type="text/javascript"></script>
   </head>
-  <body class="who">
+  <body class="ask">
     <div id="header">
       <div class="inner">
         <div id="title">
-          <h1>Creative Human Capital</h1>
+          <h1>Ask Jessica for the Answer | Creative Human Capital</h1>
         </div>
         <div id="nav">
           <ul>
-            <li class="current"><a href="/">Who We Are</a></li>
+            <li><a href="/">Who We Are</a></li>
             <li><a href="/what-we-do.html">What We Do</a></li>
             <li><a href="/enterprise.html">Enterprise</a></li>
             <li><a href="/individuals.html">Individuals</a></li>
@@ -35,11 +35,28 @@
     <div id="content">
       <div class="inner">
         <div id="main">
-          <h1>Who We Are</h1>
-          <p>Creative Human Capital is a progressive human resources task force.</p>
-          <p>We enable CEOs, entrepreneurs, enterprises, athletes, and creative impresarios to maximize the scope, vision, and deep thinking that is ordinarily a luxury for modern professionals.</p>
-          <p>We are your behind-the-scenes secret weapon, supporting your vision to radiate with abundance and gain real traction.</p>
-          <p>Our <a href="/what-we-do.html">unique consulting approach</a> identifies white space opportunities, enabling you to unleash the full power of your creative human capital&mdash;and watch your vision come alive.</p>
+          <h1>Ask Jessica for the Answer</h1>
+          <form action="/cgi-bin/post.cgi" id="user_input_form" method="POST">
+            <div class="field">
+              <label class="req" for="user_name">Name</label>
+              <input class="required name" id="user_name" name="user_name" type="text" />
+            </div>
+            <div class="field">
+              <label class="req" for="user_email">Email</label>
+              <input class="required email" id="user_email" name="user_email" type="text" />
+            </div>
+            <div class="field">
+              <label for="user_phone">Phone</label>
+              <input class="phone" id="user_phone" name="user_phone" type="text" />
+            </div>
+            <div class="field">
+              <label for="user_facebook">Your Question?</label>
+              <textarea id="user_question" name="user_question"></textarea>
+            </div>
+            <div class="actions">
+              <input src="/images/submit.png" type="image" />
+            </div>
+          </form>
         </div>
         <div id="sidebar">
           <div id="panel-top">

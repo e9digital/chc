@@ -1,34 +1,98 @@
-// must load google fonts first
-$impact: 'Impact', serif
-$droid: 'Droid Sans', serif
+$base_font_size: 20px
+$base_line_height: 24px
 
-=main-font
-  font-family: $droid
-  font-size: 15px
+.font-base
+  font-size: $base_font_size
+  line-height: $base_line_height
   font-style: normal
   font-weight: 400
-  text-shadow: none
-  text-decoration: none
-  text-transform: none
-  letter-spacing: 0em
-  word-spacing: 0em
-  line-height: 1em
 
-=small-font
-  +main-font
-  font-size: 12px
+$small_font_size: 14px
+$small_line_height: 18px
+.font-small
+  font-size: $small_font_size
+  line-height: $small_line_height
+
+$cantarell: 'Cantarell', serif
+@mixin cantarell
+  font-family: $cantarell
+.cantarell
+  @include cantarell
+
+$im_fell: 'IM Fell DW Pica SC', serif
+@mixin im_fell
+  font-family: $im_fell
+.im-fell
+  @include im_fell
+
+@mixin site_font
+  @extend .cantarell
+  @extend .font-base
+
+@mixin small_font
+  @extend .cantarell
+  @extend .font-small
 
 body
-  +main-font
+  @include site_font
+
+h1, h2, h3
+  line-height: 1em
+
+.h1
+  @extend .im-fell
+  font-size: 34px
+  margin-bottom: 0.5em
+
+h1
+  @extend .h1
+
+.h2
+  @extend .im-fell
+  font-size: 24px
+  margin-bottom: 0.4em
 
 h2
-  font-family: $impact
-  font-size: 24px
-  color: $brown
-  line-height: 1em
-  margin: 0 0 10px 0
-  text-transform: uppercase
-  text-align: center
+  @extend .h2
+
+h3
+  @extend .cantarell
+  font-size: 21px
+  font-weight: bold
+  margin-bottom: 0.5em
+
+p
+  margin-bottom: 1em
 
 a
+  text-decoration: underline
+
+.highlight
+  font-weight: bold
+
+@mixin top_nav_typography
+  @extend .h2
+  font-size: 21px
+  a
+    text-decoration: none
+
+ul
+  margin-bottom: 1em
+
+li
+  list-style: none
+  margin: 0 0 0.25em 0
+  padding: 0 0 0 18px
+  background: url(/images/bullet_12.png) 0px 4px no-repeat
+
+
+@mixin footer_typography
+  @include small_font
+
+@mixin sidebar_typography
+  @include small_font
+
+@mixin read_more_typography
+  @extend .im-fell
+  font-size: 14px
   text-decoration: none

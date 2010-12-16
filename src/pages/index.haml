@@ -1,35 +1,9 @@
-- @body_class  = "home"
-- @page_title  = "Welcome!"
-- @form_action = "/cgi-bin/post.cgi"
+- @page_title  = "Who We Are"
+- @body_class  = "who"
 
-%form{:action => @form_action, :method => 'POST', :id => 'user_input_form'}
-  .box-text
-    %h2 Register for Updates
-    Would you like to know when
-    %span.highlight FreeSocialEvents.com
-    launches in your area?  Register for updates and get a
-    <strong>FREE</strong> Premium Membership for 30 Days.
+%h1= @page_title
 
-  .field
-    %label{:for => 'user_email', :class => 'req'} Email
-    %input{:type => 'text', :id => 'user_email', :name => 'user_email', :class => 'required email'}
-
-  .field
-    %label{:for => 'user_zipcode', :class => 'req'} Zip Code
-    %input{:type => 'text', :id => 'user_zipcode', :name => 'user_zipcode', :class => 'required zipcode'}
-
-  .box-text
-    If you follow us on Twitter and become a fan of ours on
-    Facebook, you'll get a <strong>FREE</strong> Premium Membership
-    for 60 Days.
-
-  .field
-    %label{:for => 'user_twitter'} Twitter Name
-    %input{:type => 'text', :id => 'user_twitter', :name => 'user_twitter'}
-
-  .field
-    %label{:for => 'user_facebook'} Full Name on Facebook
-    %input{:type => 'text', :id => 'user_facebook', :name => 'user_facebook'}
-
-  .actions
-    %input{:type => 'image', :src => "/images/btns_submit.png"}
+%p Creative Human Capital is a progressive human resources task force. 
+%p We enable CEOs, entrepreneurs, enterprises, athletes, and creative impresarios to maximize the scope, vision, and deep thinking that is ordinarily a luxury for modern professionals. 
+%p We are your behind-the-scenes secret weapon, supporting your vision to radiate with abundance and gain real traction.
+%p Our <a href="/what-we-do.html">unique consulting approach</a> identifies white space opportunities, enabling you to unleash the full power of your creative human capital&mdash;and watch your vision come alive.
