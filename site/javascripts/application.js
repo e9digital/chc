@@ -4,21 +4,6 @@ $(document).ready(function() {
     return false;
   });
 
-  $.fn.mailto = function() {
-    var $this = $(this),
-           id = $this.attr('id'),
-         href = $this.attr('href');
-
-    if (id == undefined || href == undefined) return;
-
-    return href.replace(/\s+/, '').replace(' at ', '@').replace(' dot ', '.');
-  }
-
-  $('a[rel=email]').click(function() {
-    window.open($(this).mailto());
-    return false;
-  });
-
   jQuery.validator.addMethod('phone', function(val, el) {
     return /^((\d-?\s*)?\(?\d{3}\)?-?\s*\d{3}-?\s*\d{4}\s*)?$/.test(val);
   }, 'invalid'); 
@@ -49,6 +34,8 @@ $(document).ready(function() {
     return false;
   },
   completeHandler = function() {
+    $(':input, textarea', '#user_input_form').val('');
+
     $thanks
       .html("<div><h2>Thank You!</h2><p>Your Question has been sent to Jessica.</p><p>She'll get back to you shortly with your Answer...</p></div>")
       .fadeIn()
@@ -111,6 +98,7 @@ $(document).ready(function() {
       $form.attr('disabled', true);
       $.ajax({
         url: $form.attr('action'),
+        type: 'POST',
         data: $form.serialize(),
         dataType: 'script',
         complete: completeHandler
@@ -118,15 +106,16 @@ $(document).ready(function() {
     }
   });
 
+
+  $('#title h1').click(function() {
+    window.location = "/";
+  });
   $('form input[type=image]').hover(
     function() { $(this).attr('src', '/images/submit_over.png'); },
     function() { $(this).attr('src', '/images/submit.png'); }
   );
-
   $('label.req').append('<span class="star">*</span>');
-
   $('#footer').append('<div id="bg-gfx"/>');
-
   $('#e9 a, a.read-more').append('<span class="logo"/>');
   $("#nav li.current")
     .wrapInner('<div class="nav-m" />')

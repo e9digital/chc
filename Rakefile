@@ -1,5 +1,5 @@
-ssh_user = "root@freesocialevents.com"
-remote_root = "/var/www"
+ssh_user = "ubuntu@creativehumancapital.com"
+remote_root = "/srv/apps/creativehumancapital.com/site"
 
 desc "Runs preview"
 task :preview do
