@@ -1,0 +1,11 @@
+package_assets:          on
+embed_assets:            off    # on, off, datauri
+compress_assets:         on
+gzip_assets:             on
+javascript_compressor:   yui
+
+javascripts: 
+  base: 
+    - 'src/javascripts/jquery-1.4.2.min.js' 
+    - 'src/javascripts/jquery.validate.min.js'
+    - 'src/javascripts/application.js'

@@ -1,10 +1,9 @@
 - @site_name                     = "Creative Human Capital"
 - @title_delimiter               = " | "
 - @page_description              = @site_name
-- @page_h1                       = "Welcome to #{@site_name}!"
-- @meta_description              = "meta description"
-- @meta_keywords                 = "meta keywords"
-- @google_site_verification_code = nil
+- @meta_description              = "Creative Human Capital enables CEOs, entrepreneurs, enterprises, athletes, & impresarios to transcend hurdles and realize their creative visions."
+- @meta_keywords                 = "Human resources services, Vision, Human resources program, Secret weapon, White space, Manifest your dream, Innovation, Leadership team, Employee workshop, Magic wand, Accountable support, Large-scale change, Collaborative services, Change now, Educational services, Enterprises and businesses, Visionary, Unconditional happiness"
+- @google_site_verification_code = "c5ERlaR9roVV10oU7wxNpvk6gTYMl0aDfTwG4mJ7r4w"
 - @twitter_url                   = "http://twitter.com/"
 - @facebook_url                  = "http://www.facebook.com/"
 - @email_recipient               = 'contact'
@@ -20,7 +19,6 @@
     %title= full_page_title
     %meta{:name => "description", :content => @meta_description}
     %meta{:name => "keywords", :content => @meta_keywords}
-    <meta name="google-site-verification" content="c5ERlaR9roVV10oU7wxNpvk6gTYMl0aDfTwG4mJ7r4w" />
     <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC' rel='stylesheet' type='text/css'>
 
@@ -29,16 +27,14 @@
     /[if lt IE 8]
       = stylesheets :ie, :media => 'screen, projection'
 
-    = javascripts 'jquery-1.4.2.min', 'jquery.validate.min', 'application'
+    = javascripts 'base'
 
   %body{:id => @body_id, :class => @body_class}
     #header
       .inner
-        #title
-          - if current_page == '/index.html'
-            %h1= @site_name
-          - else
-            %h1= full_page_title
+        - t = current_page == '/index.html' ? @site_name : full_page_title
+        #title{:title => t }
+          %h1= t
         #nav
           %ul
             - title, href, css = 'Who We Are', '/'
