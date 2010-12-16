@@ -14,6 +14,7 @@
     $headers .= "Mime-Version: 1.0" . "\r\n";
     $headers .= "Content-Type: text/plain; CHARSET=iso-8859-1" . "\r\n";
     $headers .= "From: Ask Jessica <ask-jessica@creativehumancapital.com>" . "\r\n";
+    $headers .= "Reply-To: " . $_POST['user_email'] . "\r\n";
 
     if (mail($to, $subject, $body, $headers)) {
       header("Status: 200 OK");
